@@ -1,55 +1,88 @@
-📦 Sistema de Sorteios
+Sorteador de Rifas da Igreja
 
-Este guia detalha como utilizar o Sistema de Sorteios, desde a configuração inicial até os recursos avançados.
+Bem-vindo ao Sorteador de Rifas da Igreja! Esta é uma aplicação web simples e fácil de usar, projetada para tornar o sorteio de rifas da comunidade mais justo, transparente e emocionante.
 
-🚀 1. Como começar
+Com esta ferramenta, você pode apresentar o prêmio da rodada e, em seguida, sortear um ganhador de forma aleatória, com um breve momento de suspense que aumenta a expectativa de todos.
 
-Importar listas
+Funcionalidades
 
-Na tela inicial, selecione "Configurar Sorteio". Você pode importar ou digitar manualmente as seguintes listas:
+    Apresentação do Prêmio: Inicia cada sorteio revelando qual prêmio está em jogo na rodada atual.
 
-    Prêmios: Um item por linha.
+    Gestão de Múltiplos Prêmios: Gerencia uma lista de prêmios para que você possa sortear um de cada vez, sem repetições.
 
-    Participantes: Um item por linha.
+    Suspense no Sorteio: Um suspense de 3 segundos com animação e som antes da revelação do ganhador.
 
-Iniciar o sorteio
+    Interface Simples: Uma interface limpa e intuitiva, fácil para qualquer pessoa usar.
 
-Após carregar ambas as listas, clique em "Confirmar e Iniciar Sorteios".
+    Transparência: O sorteio é visível e aleatório, garantindo a confiança de todos os participantes.
 
-🎯 2. Realizando os sorteios
+Como Usar
 
-Fluxo principal
+Para usar o sorteador, siga os passos abaixo:
 
-O sistema exibirá o primeiro prêmio da lista. Clique em "Sortear Ganhador" para escolher um participante de forma aleatória. O nome do vencedor será exibido com efeitos visuais e sonoros.
+    Abra o arquivo index.html no seu navegador de internet (clique duas vezes no arquivo ou arraste-o para o navegador).
 
-Próximos sorteios
+    Iniciar Sorteio: Clique no botão "Iniciar Sorteio". O sistema irá selecionar aleatoriamente um dos prêmios disponíveis da sua lista e mostrá-lo na tela.
 
-Clique em "Sortear Próximo Prêmio" para continuar. O sistema carregará o próximo prêmio automaticamente, e o processo se repete até que todos os prêmios sejam sorteados.
+    Descobrir o Ganhador: Clique em "Descobrir o Ganhador". A tela de sorteio será carregada, pronta para a lista de participantes.
 
-Finalização
+    Inserir Participantes: No campo de texto, cole ou digite a lista de nomes ou números dos participantes da rifa. Certifique-se de que cada nome ou número esteja em uma nova linha.
 
-Quando todos os prêmios tiverem sido sorteados, uma tela final será exibida. Você terá as opções de exportar os resultados ou iniciar um novo sorteio.
+    Sortear o Vencedor: Clique no botão "Sortear Ganhador". O sorteio começará com um suspense de 3 segundos antes de revelar o grande vencedor!
 
-⚙️ 3. Recursos avançados
+    Novo Sorteio: Após a celebração, clique em "Sortear Próximo Prêmio" para iniciar uma nova rodada com os prêmios restantes.
 
-Importação de arquivos
+Personalização
 
-    Formatos: .txt ou .csv.
+Você pode facilmente personalizar a aplicação para atender às suas necessidades. Todas as personalizações são feitas nos arquivos do projeto.
 
-    Requisitos: Um item por linha.
+1. Personalizar a Lista de Prêmios
 
-    Limites: Até 5.000 participantes e 100 prêmios.
+Abra o arquivo script.js e encontre a variável availablePrizes. Você pode adicionar, remover ou alterar os prêmios nesta lista:
+JavaScript
 
-Controle do sorteio
+let availablePrizes = [
+    "Um Vale-Presentes de R$ 500 na Loja X!",
+    "Uma Smart TV 32 Polegadas!",
+    "Uma Cesta Especial de Produtos da Comunidade!",
+    "Um Fim de Semana em Pousada da Região!"
+    // Adicione ou remova prêmios aqui conforme necessário
+];
 
-O sistema permite visualizar a lista de prêmios restantes e os ganhadores anteriores. Efeitos de confete e sons animados são usados para deixar o momento do sorteio mais divertido.
+2. Mudar a Aparência (Cores e Fontes)
 
-Exportação de resultados
+Abra o arquivo style.css. Você pode modificar as cores, fontes e tamanhos de texto para combinar com a identidade visual da sua igreja ou evento.
 
-Você pode gerar um arquivo CSV contendo as seguintes informações:
+Alguns elementos importantes para personalizar:
 
-    Nome do ganhador
+    body: Cor de fundo geral da página (background-color).
 
-    Prêmio recebido
+    h1, h2: Cores dos títulos (color).
 
-    Data e hora do sorteio
+    button: Cor dos botões (background-color).
+
+    #currentPrizeText: Cor do nome do prêmio (color).
+
+    #winnerName: Cor e estilo do nome do ganhador (color, font-size).
+
+3. Alterar os Efeitos Sonoros
+
+Para mudar os sons de suspense e celebração, substitua os arquivos de áudio existentes.
+
+    Substitua o arquivo suspense.mp3 pelo seu próprio arquivo de som de suspense.
+
+    Substitua o arquivo celebration.mp3 pelo seu próprio arquivo de som de celebração.
+
+Importante: Os novos arquivos de áudio devem estar na mesma pasta dos arquivos do projeto e ter o mesmo nome (suspense.mp3 e celebration.mp3). Se você quiser usar outros nomes, lembre-se de atualizar as referências no arquivo index.html.
+
+Estrutura do Projeto
+
+O projeto é composto por três arquivos principais:
+
+    index.html: A estrutura da página web.
+
+    style.css: O estilo e a aparência visual da aplicação.
+
+    script.js: A lógica de funcionamento, incluindo a gestão de prêmios, o sorteio aleatório e as interações com os botões.
+
+Sinta-se à vontade para explorar e personalizar o projeto! Se tiver dúvidas, verifique os comentários no código para entender melhor cada seção.
