@@ -1,73 +1,55 @@
-📦 Sistema de Sorteios – Guia de Utilização
+📦 Sistema de Sorteios
 
-Este documento orienta como utilizar o Sistema de Sorteios, desde a configuração inicial até os recursos avançados disponíveis.
-🚀 1. Configuração Inicial
-✅ Importar Listas
+Este guia detalha como utilizar o Sistema de Sorteios, desde a configuração inicial até os recursos avançados.
 
-    Na tela inicial, clique em "Configurar Sorteio".
+🚀 1. Como começar
 
-    Importe ou digite:
+Importar listas
 
-        A lista de prêmios (um por linha)
+Na tela inicial, selecione "Configurar Sorteio". Você pode importar ou digitar manualmente as seguintes listas:
 
-        A lista de participantes (um por linha)
+    Prêmios: Um item por linha.
 
-▶️ Iniciar Sorteios
+    Participantes: Um item por linha.
 
-    Após carregar ambas as listas, clique em "Confirmar e Iniciar Sorteios".
+Iniciar o sorteio
 
-🎯 2. Realizando os Sorteios
-🔁 Fluxo Principal
+Após carregar ambas as listas, clique em "Confirmar e Iniciar Sorteios".
 
-    O sistema exibirá o primeiro prêmio da lista.
+🎯 2. Realizando os sorteios
 
-    Clique em "Sortear Ganhador" para sortear.
+Fluxo principal
 
-    O ganhador será exibido com efeitos visuais e sonoros.
+O sistema exibirá o primeiro prêmio da lista. Clique em "Sortear Ganhador" para escolher um participante de forma aleatória. O nome do vencedor será exibido com efeitos visuais e sonoros.
 
-⏭️ Próximos Sorteios
+Próximos sorteios
 
-    Clique em "Sortear Próximo Prêmio" para continuar.
+Clique em "Sortear Próximo Prêmio" para continuar. O sistema carregará o próximo prêmio automaticamente, e o processo se repete até que todos os prêmios sejam sorteados.
 
-    O próximo prêmio será carregado automaticamente.
+Finalização
 
-🏁 Finalização
+Quando todos os prêmios tiverem sido sorteados, uma tela final será exibida. Você terá as opções de exportar os resultados ou iniciar um novo sorteio.
 
-    Ao sortear todos os prêmios, será exibida a tela final.
+⚙️ 3. Recursos avançados
 
-    Você poderá:
+Importação de arquivos
 
-        Exportar os resultados
+    Formatos: .txt ou .csv.
 
-        Iniciar um novo sorteio
+    Requisitos: Um item por linha.
 
-⚙️ Recursos Avançados
-📁 Importação de Arquivos
+    Limites: Até 5.000 participantes e 100 prêmios.
 
-    Formatos aceitos: .txt ou .csv
+Controle do sorteio
 
-    Requisitos:
+O sistema permite visualizar a lista de prêmios restantes e os ganhadores anteriores. Efeitos de confete e sons animados são usados para deixar o momento do sorteio mais divertido.
 
-        Um item por linha
+Exportação de resultados
 
-        Suporte a até 5.000 participantes e 100 prêmios
+Você pode gerar um arquivo CSV contendo as seguintes informações:
 
-📋 Controle do Sorteio
+    Nome do ganhador
 
-    Visualização de prêmios restantes
+    Prêmio recebido
 
-    Lista de ganhadores anteriores
-
-    Efeitos de confete e sons animados
-
-📤 Exportação de Resultados
-
-    Geração de arquivo CSV
-
-    Informações incluídas:
-
-        Nome do ganhador
-
-        Prêmio recebido
-
-        Data e hora do sorteio
+    Data e hora do sorteio
