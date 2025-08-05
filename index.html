@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema avançado de sorteio de rifas para eventos da igreja">
+    <title>Sorteador de Rifas - Igreja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tela de Boas-vindas -->
+        <section id="welcomeScreen" class="screen active" aria-labelledby="welcomeTitle">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo da Igreja" width="120">
+            </div>
+            <h1 id="welcomeTitle">Sorteio de Rifas</h1>
+            <p class="subtitle">Evento beneficente</p>
+            <button id="startSetupButton" class="btn-primary">
+                <span class="btn-icon">⚙️</span> Configurar Sorteio
+            </button>
+        </section>
+
+        <!-- Tela de Configuração -->
+        <section id="setupScreen" class="screen" hidden>
+            <h2>Configuração Inicial</h2>
+            
+            <div class="setup-group">
+                <h3>Lista de Prêmios</h3>
+                <div class="file-upload">
+                    <input type="file" id="importPrizes" accept=".txt,.csv">
+                    <label for="importPrizes" class="btn-secondary">
+                        <span class="btn-icon">🏆</span> Importar Prêmios
+                    </label>
+                </div>
+                <div class="input-fallback">
+                    <label for="manualPrizes">Ou digite os prêmios (um por linha):</label>
+                    <textarea id="manualPrizes" placeholder="Digite cada prêmio em uma linha"></textarea>
+                </div>
+                <div id="prizesPreview" class="list-preview"></div>
+            </div>
+            
+            <div class="setup-group">
+                <h3>Lista de Participantes</h3>
+                <div class="file-upload">
+                    <input type="file" id="importParticipants" accept=".txt,.csv">
+                    <label for="importParticipants" class="btn-secondary">
+                        <span class="btn-icon">👥</span> Importar Participantes
+                    </label>
+                </div>
+                <div class="input-fallback">
+                    <label for="manualParticipants">Ou digite os participantes (um por linha):</label>
+                    <textarea id="manualParticipants" placeholder="Digite cada participante em uma linha"></textarea>
+                </div>
+                <div id="participantsPreview" class="list-preview"></div>
+            </div>
+            
+            <button id="confirmSetupButton" class="btn-primary" disabled>
+                <span class="btn-icon">✅</span> Confirmar e Iniciar Sorteios
+            </button>
+        </section>
+
+        <!-- Tela de Sorteio -->
+        <section id="raffleScreen" class="screen" hidden>
+            <div class="prize-info">
+                <h3>Prêmio Atual:</h3>
+                <div id="currentPrizeText" class="prize-display"></div>
+                <div class="remaining-prizes">
+                    <span id="remainingPrizesCount">0</span> prêmios restantes
+                </div>
+            </div>
+            
+            <div class="participants-info">
+                <h3>Participantes:</h3>
+                <div class="participants-count">
+                    <span id="participantsCount">0</span> participantes cadastrados
+                </div>
+            </div>
+            
+            <button id="drawWinnerButton" class="btn-primary">
+                <span class="btn-icon">🎲</span> Sortear Ganhador
+            </button>
+            
+            <div id="suspenseArea" class="result-area" hidden>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <p id="suspenseMessage" role="status">Sorteando o ganhador...</p>
+                <div class="spinner" id="spinner" aria-hidden="true"></div>
+            </div>
+            
+            <div id="winnerArea" class="result-area" hidden>
+                <div class="confetti"></div>
+                <p class="winner-label">O ganhador é:</p>
+                <p id="winnerName" class="winner-name" role="alert"></p>
+                <div class="prize-info">
+                    <p class="prize-label">Prêmio:</p>
+                    <p id="winnerPrize" class="prize-name"></p>
+                </div>
+                
+                <div class="winners-list-container">
+                    <h4>Ganhadores Anteriores:</h4>
+                    <div id="previousWinners" class="winners-list"></div>
+                </div>
+                
+                <button id="newRaffleButton" class="btn-primary">
+                    <span class="btn-icon">🔄</span> Sortear Próximo Prêmio
+                </button>
+                
+                <button id="finishRaffleButton" class="btn-secondary">
+                    <span class="btn-icon">🏁</span> Finalizar Sorteios
+                </button>
+            </div>
+        </section>
+
+        <!-- Tela Final -->
+        <section id="finalScreen" class="screen" hidden>
+            <h2>Sorteios Concluídos!</h2>
+            <div class="summary">
+                <p><span id="totalPrizesAwarded">0</span> prêmios sorteados</p>
+                <p><span id="totalParticipants">0</span> participantes</p>
+            </div>
+            
+            <div class="full-winners-list">
+                <h3>Lista Completa de Ganhadores:</h3>
+                <div id="completeWinnersList"></div>
+            </div>
+            
+            <button id="restartRaffleButton" class="btn-primary">
+                <span class="btn-icon">🔄</span> Realizar Novo Sorteio
+            </button>
+            
+            <button id="exportResultsButton" class="btn-secondary">
+                <span class="btn-icon">📤</span> Exportar Resultados
+            </button>
+        </section>
+    </div>
+
+    <!-- Áudios -->
+    <audio id="suspenseSound" preload="auto">
+        <source src="assets/suspense.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="celebrationSound" preload="auto">
+        <source src="assets/celebration.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

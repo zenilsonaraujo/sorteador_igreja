@@ -1,0 +1,520 @@
+:root {
+    /* Cores */
+    --primary-color: #4CAF50;
+    --primary-dark: #3e8e41;
+    --secondary-color: #2196F3;
+    --secondary-dark: #0b7dda;
+    --accent-orange: #FF5722;
+    --accent-pink: #E91E63;
+    --text-dark: #2c3e50;
+    --text-medium: #34495e;
+    --text-light: #7f8c8d;
+    --bg-light: #f5f7fa;
+    --white: #ffffff;
+    --border-light: #dfe6e9;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    
+    /* Espaçamentos */
+    --container-padding: clamp(20px, 5vw, 40px);
+    --element-spacing: 1.5rem;
+    --group-spacing: 2.5rem;
+    
+    /* Tipografia */
+    --font-main: 'Poppins', sans-serif;
+    --font-size-base: clamp(16px, 2vw, 18px);
+    
+    /* Transições */
+    --transition-fast: 0.15s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Reset e Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    font-size: var(--font-size-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container Principal */
+.container {
+    background-color: var(--white);
+    padding: var(--container-padding);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    width: min(95%, 900px);
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.logo {
+    margin-bottom: var(--element-spacing);
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Telas */
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--element-spacing);
+    padding: var(--container-padding);
+    width: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.screen.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Tipografia */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5em;
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-top: var(--element-spacing);
+}
+
+h4 {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-bottom: var(--element-spacing);
+    font-size: 1.1rem;
+}
+
+/* Grupos de Configuração */
+.setup-group {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: var(--group-spacing);
+    background-color: rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px dashed var(--border-light);
+}
+
+/* Botões */
+button {
+    font-family: var(--font-main);
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    background-color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.2em;
+}
+
+/* Inputs e File Upload */
+.input-fallback {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.input-fallback label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+    resize: vertical;
+    transition: border-color var(--transition-fast);
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+/* Pré-visualização de Listas */
+.list-preview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.list-preview-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.list-preview-item:last-child {
+    border-bottom: none;
+}
+
+/* Área de Sorteio */
+.prize-info, .participants-info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--element-spacing);
+}
+
+.prize-display {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    color: var(--accent-orange);
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: rgba(255, 87, 34, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.remaining-prizes, .participants-count {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.remaining-prizes span, .participants-count span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Resultados */
+.result-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.winner-label {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: -1rem;
+}
+
+.winner-name {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-weight: bold;
+    color: var(--accent-pink);
+    text-align: center;
+    margin: 1rem 0;
+    animation: pulse 1.5s infinite;
+}
+
+.prize-label {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.prize-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Lista de Ganhadores */
+.winners-list-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem 0;
+}
+
+.winners-list {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.winner-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.winner-entry:last-child {
+    border-bottom: none;
+}
+
+.winner-name-small {
+    font-weight: 600;
+}
+
+.winner-prize-small {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Tela Final */
+.summary {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.summary p {
+    font-size: 1.2rem;
+}
+
+.summary span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.full-winners-list {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.5rem 0;
+}
+
+.completeWinnersList {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 10px;
+    background-color: var(--border-light);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    animation: progressBar 3s linear forwards;
+}
+
+/* Spinner */
+.spinner {
+    border: 6px solid var(--spinner-bg);
+    border-top: 6px solid var(--spinner-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    animation: confettiFall 5s linear forwards;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes progressBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+@keyframes confettiFall {
+    0% { 
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Acessibilidade */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .setup-group {
+        padding: 1rem;
+    }
+    
+    button {
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        border-radius: 15px;
+        padding: 1rem;
+    }
+    
+    .summary {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .winner-name {
+        font-size: 1.8rem;
+    }
+}
